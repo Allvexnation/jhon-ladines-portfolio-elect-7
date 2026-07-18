@@ -35,6 +35,7 @@ This portfolio project showcases modern web development practices through a clea
 ### Additional Libraries
 
 - **@base-ui/react** - Unstyled React components
+- **Brevo API** - Email service integration for contact forms
 - **class-variance-authority** - Component variant management
 - **cmdk** - Command menu component
 - **date-fns** - Date manipulation
@@ -60,22 +61,25 @@ This portfolio project showcases modern web development practices through a clea
 
 ### Portfolio Sections
 
-- **Hero Section** - Introduction with location and status indicators
+- **Home Page** - Main landing page with hero section and introduction
+- **About Page** - Personal information, background, and detailed bio
+- **Contact Page** - Contact form with Brevo email integration
 - **Skills Display** - Technology showcase with glass-icon components
 - **Projects Showcase** - Interactive project cards with navigation
-- **About Me** - Personal information and background
 - **Tech Stack** - Detailed technology and tools overview
-- **Tutorials** - Educational content and resources
-- **Chat Room** - Interactive communication interface
+- **Social Media** - Social media links and integration
 - **Services** - Professional services offering
 
 ### UI Components
 
-- **Navigation** - Sidebar navigation with responsive behavior
+- **Navigation** - Sidebar and line navigation with responsive behavior
 - **Cards** - Featured section cards with hover effects
 - **Icons** - Custom glass-icon components for technologies
 - **Theme Provider** - Context-based theme management
 - **Form Elements** - Input components with validation
+- **Modal** - Share modal for social media sharing
+- **Shiny Text** - Animated text effect component
+- **Social Cards** - Social media display cards
 
 ## Project Structure
 
@@ -83,33 +87,93 @@ This portfolio project showcases modern web development practices through a clea
 portfolio/
 ├── src/
 │   ├── app/                    # Next.js App Router pages
+│   │   ├── about/             # About page
+│   │   ├── api/               # API routes
+│   │   ├── contact/           # Contact page
+│   │   ├── home/              # Home page
+│   │   ├── favicon.ico        # Site favicon
 │   │   ├── globals.css        # Global styles and Tailwind imports
-│   │   ├── layout.tsx         # Root layout with theme provider
-│   │   └── page.tsx           # Home page (redirects to pages/home)
+│   │   ├── layout.tsx         # Root layout with providers
+│   │   └── page.tsx           # Root page
 │   ├── components/            # Reusable components
 │   │   ├── ui/               # shadcn/ui components (60 items)
 │   │   ├── GlassIcons.tsx    # Glass morphism icon components
+│   │   ├── LineSidebar.tsx   # Line navigation sidebar
+│   │   ├── Modal.tsx         # Modal component
+│   │   ├── ShinyText.tsx     # Shiny text effect component
 │   │   ├── SideBar.tsx       # Navigation sidebar
 │   │   ├── SkillsCardTechs.tsx # Skills display card
-│   │   ├── TechLogoIcon.tsx  # Technology logo icons
-│   │   └── theme-provider.tsx # Theme context provider
-│   ├── pages/                 # Page components
-│   │   └── home.tsx          # Main home page
-│   ├── functions/            # Utility functions and hooks
+│   │   ├── Social.tsx        # Social media cards
+│   │   ├── Subjects.tsx      # Subject cards
+│   │   └── TechLogoIcon.tsx  # Technology logo icons
+│   ├── functions/            # Utility functions
+│   │   ├── SidebarLogic.ts   # Sidebar navigation logic
+│   │   ├── ThemeFunction.ts  # Theme utility functions
+│   │   └── TranslationFunction.ts # Translation utilities
 │   ├── hooks/                # Custom React hooks
+│   │   ├── use-mobile.ts     # Mobile detection hook
+│   │   ├── useAboutLogic.ts  # About page logic
+│   │   ├── useContactLogic.ts # Contact page logic
+│   │   ├── useEmailLogic.ts  # Email functionality logic
+│   │   ├── useHomeLogic.ts   # Home page logic
+│   │   ├── useModalLogic.ts  # Modal state management
+│   │   └── useSocialLogic.ts # Social media logic
+│   ├── interface/            # TypeScript interfaces
+│   │   ├── ContactTranslations.ts # Contact translation types
+│   │   ├── ShareModalProps.ts # Share modal props
+│   │   ├── ShareModalState.ts # Share modal state
+│   │   ├── SkillsCardTechsProps.ts # Skills card props
+│   │   ├── SocialCardProps.ts # Social card props
+│   │   ├── SocialItem.ts     # Social item interface
+│   │   ├── SocialProps.ts    # Social component props
+│   │   └── TechLogoIconProps.ts # Tech logo icon props
 │   ├── lib/                  # Library utilities
-│   ├── static/               # Static assets and data
+│   │   └── utils.ts          # General utility functions
+│   ├── provider/             # React context providers
+│   │   ├── EmailProvider.tsx # Email context provider
+│   │   └── ThemeProvider.tsx # Theme context provider
+│   ├── static/               # Static data and assets
+│   │   ├── about.json        # About page data
+│   │   ├── about_english.json # About English translations
+│   │   ├── about_tagalog.json # About Tagalog translations
+│   │   ├── contact_english.json # Contact English translations
+│   │   ├── contact_tagalog.json # Contact Tagalog translations
+│   │   ├── home_english.json # Home English translations
+│   │   ├── home_tagalog.json # Home Tagalog translations
+│   │   ├── navbar.json       # Navbar data
+│   │   ├── sidebar.json      # Sidebar data
+│   │   ├── sidebar_english.json # Sidebar English translations
+│   │   ├── sidebar_tagalog.json # Sidebar Tagalog translations
+│   │   ├── socials.json      # Social media data
+│   │   ├── subjects.json     # Subjects data
+│   │   └── tech-logos.json   # Technology logos data
+│   ├── templates/            # Template files
+│   │   └── Emailtemplate.ts  # Email template
 │   ├── types/                # TypeScript type definitions
-│   └── utils/                # Helper functions
+│   │   ├── common.ts         # Common types
+│   │   ├── components.ts     # Component types
+│   │   └── theme.ts          # Theme types
+│   └── utils/                # Helper utilities
+│       ├── LanguageToggle.ts # Language toggle utility
+│       └── ThemeToggle.ts    # Theme toggle utility
 ├── public/                    # Static assets
+│   ├── file.svg              # File icon
+│   ├── globe.svg             # Globe icon
+│   ├── next.svg              # Next.js logo
+│   ├── vercel.svg            # Vercel logo
+│   └── window.svg            # Window icon
+├── .git/                     # Git repository
+├── .gitignore                # Git ignore rules
+├── .prettierignore           # Prettier ignore rules
+├── .prettierrc               # Prettier configuration
+├── AGENTS.md                 # Agent documentation
 ├── components.json           # shadcn/ui configuration
-├── next.config.ts            # Next.js configuration
-├── tsconfig.json             # TypeScript configuration
-├── tailwind.config.ts        # Tailwind CSS configuration
-├── postcss.config.mjs        # PostCSS configuration
-├── prettierrc                # Prettier configuration
 ├── eslint.config.mjs         # ESLint configuration
-└── package.json              # Project dependencies
+├── next.config.ts            # Next.js configuration
+├── package.json              # Project dependencies
+├── postcss.config.mjs        # PostCSS configuration
+├── tailwind.config.ts        # Tailwind CSS configuration
+└── tsconfig.json             # TypeScript configuration
 ```
 
 ## Getting Started
@@ -205,6 +269,22 @@ TypeScript is configured with:
 - **Colors** - Modify theme colors in `src/app/globals.css`
 - **Components** - Use `useTheme()` hook from `@/components/theme-provider`
 - **Dark Mode** - Automatically handles system preference
+
+### Email Integration
+
+The project uses Brevo API for email functionality:
+
+- **Environment Variables** required:
+  - `BREVO_API_KEY` - Your Brevo API key
+  - `SENDER_NAME` - Sender name for emails
+  - `SENDER_EMAIL` - Sender email address
+
+- **API Endpoint**: `/api/send-email` (POST)
+- **Features**:
+  - Contact form submissions
+  - HTML email templates
+  - Error handling and validation
+  - Reply-to functionality
 
 ## Deployment
 
