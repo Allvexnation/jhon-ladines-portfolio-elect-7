@@ -12,10 +12,9 @@ export function useLanguageToggle() {
           return saved;
         }
       } catch (_) {
-        // Ignore localStorage errors
       }
     }
-    return 'en'; // Default to English
+    return 'en';
   });
 
   const toggleLanguage = () => {
@@ -25,7 +24,6 @@ export function useLanguageToggle() {
         try {
           localStorage.setItem('lang', newLang);
         } catch (_) {
-          // Ignore localStorage errors
         }
       }
       return newLang;
@@ -38,14 +36,12 @@ export function useLanguageToggle() {
         try {
           localStorage.setItem('lang', newLang);
         } catch (_) {
-          // Ignore localStorage errors
         }
       }
       return newLang;
     });
   };
 
-  // Listen for storage changes from other tabs
   useEffect(() => {
     const handleStorageChange = () => {
       if (typeof window !== 'undefined') {
@@ -55,7 +51,6 @@ export function useLanguageToggle() {
             setLang(newLang);
           }
         } catch (_) {
-          // Ignore errors
         }
       }
     };

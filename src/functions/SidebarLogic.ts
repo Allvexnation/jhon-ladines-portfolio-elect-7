@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import { useThemeToggle } from '@/utils/theme-toggle';
-import { useLanguageToggle } from '@/utils/toggle-language';
+import { useThemeToggle } from '@/utils/ThemeToggle';
+import { useLanguageToggle } from '@/utils/LanguageToggle';
 import type { SideBarProps } from '@/types/components';
 import {
   BiHomeCircle,
@@ -26,18 +26,15 @@ import englishLabels from '@/static/sidebar_english.json';
 import tagalogLabels from '@/static/sidebar_tagalog.json';
 import sidebarConfig from '@/static/sidebar.json';
 
-// Constants
 export const PROFILE_IMAGE = 'https://res.cloudinary.com/djtsciuwn/image/upload/IMG-JHON_jxdvco.jpg';
 export const VERIFIED_BADGE =
   'https://res.cloudinary.com/dbob1wota/image/upload/verified_svtr7d.png';
 
-// Translation labels
 export const labels: Record<'en' | 'tl', Record<string, string>> = {
   en: englishLabels,
   tl: tagalogLabels,
 };
 
-// Icon mapping
 const iconMap: Record<string, React.ComponentType<any>> = {
   BiHomeCircle,
   BiUser,
@@ -53,7 +50,6 @@ const iconMap: Record<string, React.ComponentType<any>> = {
   Monitor,
 };
 
-// Custom hook for sidebar logic
 export const useSidebarLogic = ({
   isDarkMode: externalIsDarkMode,
   toggleTheme: externalToggleTheme,
@@ -76,7 +72,6 @@ export const useSidebarLogic = ({
   const [activeTab, setActiveTab] = useState(externalActiveTab || pathname?.slice(1) || 'home');
   const [navLayout, setNavLayout] = useState(externalNavLayout || 'sidebar');
 
-  // Theme-aware colors
   const themeColors = {
     mobile: {
       background: isDarkMode ? '#0a0a0a' : '#ffffff',
@@ -131,7 +126,6 @@ export const useSidebarLogic = ({
   }, []);
 
   return {
-    // State
     isOpen,
     setIsOpen,
     imageLoaded,
@@ -140,15 +134,13 @@ export const useSidebarLogic = ({
     setActiveTab,
     navLayout,
     setNavLayout,
-    
-    // Theme and language
+
     isDarkMode,
     toggleTheme,
     lang,
     toggleLanguage,
     setLanguage,
-    
-    // Computed values
+
     themeColors,
     textPrimary,
     textSecondary,
@@ -158,13 +150,11 @@ export const useSidebarLogic = ({
     controlBtnClass,
     navActiveClass,
     navInactiveClass,
-    
-    // Navigation
+
     allNavItems,
     primaryNavItems,
     handleNavClick,
-    
-    // External props
+
     externalSetNavLayout,
   };
 };

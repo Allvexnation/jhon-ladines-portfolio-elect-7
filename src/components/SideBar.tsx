@@ -4,7 +4,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CloudSun, CloudMoon, PanelTop, PanelLeft, ArrowRight } from 'lucide-react';
 import type { SideBarProps } from '@/types/components';
-import { useSidebarLogic, PROFILE_IMAGE, VERIFIED_BADGE } from '@/functions/sidebar-logic';
+import { useSidebarLogic, PROFILE_IMAGE, VERIFIED_BADGE } from '@/functions/SidebarLogic';
 
 const SideBar: React.FC<SideBarProps> = (props) => {
   const {
@@ -42,13 +42,11 @@ const SideBar: React.FC<SideBarProps> = (props) => {
 
   return (
     <>
-      {/* Mobile Top Navbar */}
       <div
         className={`lg:hidden fixed top-0 left-0 right-0 z-[100] border-b ${mobileTopBorderClass} backdrop-blur-sm bg-opacity-95`}
         style={{ backgroundColor: themeColors.mobile.background }}
       >
         <div className="flex items-center justify-between px-4 py-3">
-          {/* Profile Section */}
           <div
             className={`flex items-center gap-3 transition-all duration-500 ${
               isOpen ? 'opacity-0 scale-75' : 'opacity-100 scale-100'
@@ -98,9 +96,7 @@ const SideBar: React.FC<SideBarProps> = (props) => {
             </div>
           </div>
 
-          {/* Right Side Controls */}
           <div className="flex items-center gap-2 ml-auto">
-            {/* Theme Toggle */}
             <div className="relative">
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 ${
@@ -121,7 +117,6 @@ const SideBar: React.FC<SideBarProps> = (props) => {
               </div>
             </div>
 
-            {/* Language Toggle */}
             <div className="relative">
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 ${
@@ -138,7 +133,6 @@ const SideBar: React.FC<SideBarProps> = (props) => {
               </div>
             </div>
 
-            {/* Menu Button */}
             <div className="relative">
               <button
                 onClick={() => {
@@ -173,7 +167,6 @@ const SideBar: React.FC<SideBarProps> = (props) => {
         </div>
       </div>
 
-      {/* Mobile Full Screen Menu */}
       <AnimatePresence>
         <motion.div
           className="lg:hidden fixed inset-0 z-[90]"
@@ -198,7 +191,6 @@ const SideBar: React.FC<SideBarProps> = (props) => {
               msOverflowStyle: 'none',
             }}
           >
-            {/* Profile and Controls Section */}
             <motion.div
               className="text-left mb-6"
               initial={{ opacity: 0, scale: 0.9, y: -10 }}
@@ -214,8 +206,7 @@ const SideBar: React.FC<SideBarProps> = (props) => {
               }}
               style={{ willChange: 'transform, opacity' }}
             >
-              {/* Profile Section */}
-              <div className="flex items-center gap-3 mb-4 mt-4">
+                  <div className="flex items-center gap-3 mb-4 mt-4">
                 <motion.div
                   className="relative cursor-pointer hover:opacity-80 transition-opacity lg:hidden"
                   onClick={() => {
@@ -277,10 +268,8 @@ const SideBar: React.FC<SideBarProps> = (props) => {
                 </div>
               </div>
 
-              {/* Control Buttons */}
               <div className="flex flex-wrap items-center gap-2">
-                {/* Language Toggle */}
-                <div
+                    <div
                   className={`relative flex items-center rounded-full p-0.5 ${togglePillBorderClass} ${isDarkMode ? 'bg-[#1a1a1a]' : 'bg-gray-200'} transition-colors duration-300`}
                 >
                   <div
@@ -319,8 +308,7 @@ const SideBar: React.FC<SideBarProps> = (props) => {
                   </button>
                 </div>
 
-                {/* Theme Toggle */}
-                <div
+                    <div
                   className={`relative flex items-center rounded-full p-0.5 ${togglePillBorderClass} ${isDarkMode ? 'bg-[#1a1a1a]' : 'bg-gray-200'} transition-colors duration-300`}
                 >
                   <div
@@ -363,7 +351,6 @@ const SideBar: React.FC<SideBarProps> = (props) => {
               </div>
             </motion.div>
 
-            {/* Divider */}
             <motion.div
               className={`w-full ${dividerClass} mb-4`}
               initial={{ opacity: 0, scaleX: 0.8 }}
@@ -379,7 +366,6 @@ const SideBar: React.FC<SideBarProps> = (props) => {
               style={{ willChange: 'transform, opacity' }}
             ></motion.div>
 
-            {/* Navigation */}
             <nav className="space-y-0 pr-1">
               {primaryNavItems.map((item, index) => (
                 <motion.button
@@ -402,7 +388,6 @@ const SideBar: React.FC<SideBarProps> = (props) => {
                   whileTap={{ scale: 0.98 }}
                   style={{ willChange: 'transform, opacity' }}
                 >
-                  {/* Spinning dashed border on hover */}
                   {activeTab !== item.id && (
                     <svg
                       className="absolute inset-0 w-full h-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200"
@@ -444,7 +429,6 @@ const SideBar: React.FC<SideBarProps> = (props) => {
         </motion.div>
       </AnimatePresence>
 
-      {/* Desktop Sidebar */}
       <AnimatePresence>
         <motion.aside
           className="hidden lg:block fixed left-16 top-0 bottom-0 w-64 z-40"
@@ -465,8 +449,7 @@ const SideBar: React.FC<SideBarProps> = (props) => {
               msOverflowStyle: 'none',
             }}
           >
-            {/* Profile Section */}
-            <div className="text-center mb-3">
+              <div className="text-center mb-3">
               <div
                 className="relative inline-block mb-3 cursor-pointer hover:opacity-80 transition-opacity"
                 onClick={() => handleNavClick(allNavItems[0])}
@@ -503,14 +486,12 @@ const SideBar: React.FC<SideBarProps> = (props) => {
               <p className={`text-xs ${textSecondary}`}>@jhonladines</p>
             </div>
 
-            {/* Language Toggle, Theme, and Layout */}
             <div className="mb-4">
               <div
                 className="flex items-center justify-center gap-1.5"
                 aria-label="Language selector"
               >
-                {/* Language Toggle */}
-                <div
+                    <div
                   className={`relative flex items-center rounded-full p-0.5 ${togglePillBorderClass} ${isDarkMode ? 'bg-[#1a1a1a]' : 'bg-gray-200'} transition-colors duration-300`}
                 >
                   <div
@@ -549,8 +530,7 @@ const SideBar: React.FC<SideBarProps> = (props) => {
                   </button>
                 </div>
 
-                {/* Theme Toggle */}
-                <div
+                    <div
                   className={`relative flex items-center rounded-full p-0.5 ${togglePillBorderClass} ${isDarkMode ? 'bg-[#1a1a1a]' : 'bg-gray-200'} transition-colors duration-300`}
                 >
                   <div
@@ -591,7 +571,6 @@ const SideBar: React.FC<SideBarProps> = (props) => {
                   </button>
                 </div>
 
-                {/* Layout Toggle */}
                 {externalSetNavLayout && (
                   <div
                     className={`relative flex items-center rounded-full p-0.5 ${togglePillBorderClass} ${isDarkMode ? 'bg-[#1a1a1a]' : 'bg-gray-200'} transition-colors duration-300`}
@@ -622,10 +601,8 @@ const SideBar: React.FC<SideBarProps> = (props) => {
               </div>
             </div>
 
-            {/* Divider */}
             <div className={`w-full ${dividerClass} mb-4`}></div>
 
-            {/* Navigation */}
             <nav className="space-y-0 pr-1">
               {primaryNavItems.map((item) => (
                 <button
@@ -635,7 +612,6 @@ const SideBar: React.FC<SideBarProps> = (props) => {
                     activeTab === item.id ? navActiveClass : navInactiveClass
                   }`}
                 >
-                  {/* Spinning dashed border on hover */}
                   {activeTab !== item.id && (
                     <svg
                       className="absolute inset-0 w-full h-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200"
@@ -673,7 +649,6 @@ const SideBar: React.FC<SideBarProps> = (props) => {
               ))}
             </nav>
 
-            {/* Divider */}
             <div className={`w-full ${dividerClass} my-2`}></div>
 
             <div className="pt-2 pb-6">

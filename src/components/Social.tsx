@@ -9,7 +9,6 @@ import { useModalLogic } from '@/hooks/useModalLogic';
 import { SocialCardProps } from '@/interface/SocialCardProps';
 import { SocialProps } from '@/interface/SocialProps';
 
-// Social Card Component
 function SocialCard({ 
   icon: Icon, 
   title, 

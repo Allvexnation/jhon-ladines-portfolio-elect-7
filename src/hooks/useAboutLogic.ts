@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
-import { useThemeToggle } from '@/utils/theme-toggle';
-import { useLanguageToggle } from '@/utils/toggle-language';
-import { getThemeColors } from '@/functions/theme-utils';
-import { getAboutTranslations } from '@/functions/translation-utils';
+import { useThemeToggle } from '@/utils/ThemeToggle';
+import { useLanguageToggle } from '@/utils/LanguageToggle';
+import { getThemeColors } from '@/functions/ThemeFunction';
+import { getAboutTranslations } from '@/functions/TranslationFunction';
 
 export function useAboutLogic() {
   const { isDarkMode } = useThemeToggle();

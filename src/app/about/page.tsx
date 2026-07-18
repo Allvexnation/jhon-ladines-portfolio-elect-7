@@ -32,7 +32,6 @@ export default function About() {
       }
     >
       <div className="max-w-[1400px] mx-auto">
-        {/* Header */}
         <div className="mb-6 animate-fadeInUp animate-stagger-1">
           <h1
             className={`text-2xl sm:text-3xl md:text-2xl lg:text-3xl xl:text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-3`}
@@ -46,12 +45,10 @@ export default function About() {
           </p>
         </div>
 
-        {/* Divider */}
         <div className="mb-8 animate-fadeInUp animate-stagger-2">
           <div className={`h-px ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}></div>
         </div>
 
-        {/* About Intro Section */}
         <div className="mb-12 animate-fadeInUp animate-stagger-3">
           <div className="space-y-4">
             {t.aboutIntro.paragraphs.map((paragraph: any, index: number) => {
@@ -80,7 +77,6 @@ export default function About() {
             })}
           </div>
 
-          {/* Signature */}
           <div className="mt-8 flex items-center gap-4">
             <div className="flex-shrink-0">
               <img
@@ -100,12 +96,10 @@ export default function About() {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="mb-12 animate-fadeInUp animate-stagger-4">
           <div className={`h-px ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}></div>
         </div>
 
-        {/* Career Section */}
         <div className="mb-12 animate-fadeInUp animate-stagger-5">
           <div className="flex flex-col gap-1.5 mb-5">
             <div className="flex items-center gap-3">
@@ -199,12 +193,10 @@ export default function About() {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="mb-12 animate-fadeInUp animate-stagger-6">
           <div className={`h-px ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}></div>
         </div>
 
-        {/* Education Section */}
         <div className="mb-12 animate-fadeInUp animate-stagger-7">
           <div className="flex flex-col gap-1.5 mb-5">
             <div className="flex items-center gap-3">
@@ -279,12 +271,10 @@ export default function About() {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="mb-12 animate-fadeInUp animate-stagger-8">
           <div className={`h-px ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}></div>
         </div>
 
-        {/* Specs Section */}
         <div className="mb-12 animate-fadeInUp animate-stagger-9">
           <div className="flex flex-col gap-1.5 mb-5">
             <div className="flex items-center gap-3">

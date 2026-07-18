@@ -14,8 +14,8 @@ import { TechLogoIcon } from '@/components/TechLogoIcon';
 import { SkillsCardTechs } from '@/components/SkillsCardTechs';
 import Subjects from '@/components/Subjects';
 import { useHomeLogic } from '@/hooks/useHomeLogic';
-import { getAboutTranslations } from '@/functions/translation-utils';
-import { useLanguageToggle } from '@/utils/toggle-language';
+import { getAboutTranslations } from '@/functions/TranslationFunction';
+import { useLanguageToggle } from '@/utils/LanguageToggle';
 import ShinyText from '@/components/ShinyText';
 
 export default function Home() {
@@ -41,7 +41,6 @@ export default function Home() {
       }
     >
       <div className="max-w-[1400px] mx-auto">
-        {/* Hero Section */}
         <div className="mb-12 animate-fadeInUp animate-stagger-1">
           <h1
             className={`text-2xl sm:text-3xl md:text-2xl lg:text-3xl xl:text-2xl font-bold mb-4 break-words`}
@@ -84,12 +83,10 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Divider after Hero Section */}
         <div className="mb-12 animate-fadeInUp animate-stagger-2">
           <div className={`h-px ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}></div>
         </div>
 
-        {/* Skills Section */}
         <div className="mb-12 animate-fadeInUp animate-stagger-3">
           <div className="flex flex-col gap-1.5 mb-5">
             <div className="flex items-center gap-3">
@@ -117,12 +114,10 @@ export default function Home() {
           />
         </div>
 
-        {/* Divider after Skills Section */}
         <div className="mb-12 animate-fadeInUp animate-stagger-4">
           <div className={`h-px ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}></div>
         </div>
 
-        {/* Subject Section */}
         <div className="mb-12 animate-fadeInUp animate-stagger-5">
           <div className="flex flex-col gap-1.5 mb-5">
             <div className="flex items-center gap-3">

@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { useThemeToggle } from '@/utils/theme-toggle';
-import { useLanguageToggle } from '@/utils/toggle-language';
-import { getThemeColors } from '@/functions/theme-utils';
-import { getTranslations } from '@/functions/translation-utils';
+import { useThemeToggle } from '@/utils/ThemeToggle';
+import { useLanguageToggle } from '@/utils/LanguageToggle';
+import { getThemeColors } from '@/functions/ThemeFunction';
+import { getTranslations } from '@/functions/TranslationFunction';
 
 export function useHomeLogic() {
   const router = useRouter();

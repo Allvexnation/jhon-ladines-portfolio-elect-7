@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { useThemeToggle } from '@/utils/theme-toggle';
-import { useLanguageToggle } from '@/utils/toggle-language';
-import { getThemeColors } from '@/functions/theme-utils';
+import { useThemeToggle } from '@/utils/ThemeToggle';
+import { useLanguageToggle } from '@/utils/LanguageToggle';
+import { getThemeColors } from '@/functions/ThemeFunction';
 import contactEnglish from '@/static/contact_english.json';
 import contactTagalog from '@/static/contact_tagalog.json';
 import { ContactTranslations } from '@/interface/ContactTranslations';
@@ -32,7 +32,6 @@ export function useContactLogic() {
 
   const t = getContactTranslations(lang);
 
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

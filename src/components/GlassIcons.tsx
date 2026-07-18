@@ -41,7 +41,7 @@ const GlassIcons: React.FC<GlassIconsProps> = ({
 
   const calculateTooltipPosition = (index: number): string => {
     if (typeof window === 'undefined') return 'center';
-    if (window.innerWidth >= 640) return 'center'; // Desktop - always center
+    if (window.innerWidth >= 640) return 'center';
 
     const iconElement = iconRefs.current[index];
     if (!iconElement) return 'center';
@@ -50,20 +50,16 @@ const GlassIcons: React.FC<GlassIconsProps> = ({
     const viewportWidth = window.innerWidth;
     const iconCenter = rect.left + rect.width / 2;
 
-    // More precise detection: check if tooltip would overflow
-    const tooltipEstimatedWidth = 120; // Approximate tooltip width
+    const tooltipEstimatedWidth = 120;
     const tooltipLeft = iconCenter - tooltipEstimatedWidth / 2;
     const tooltipRight = iconCenter + tooltipEstimatedWidth / 2;
 
-    // If tooltip would overflow left edge, align left
     if (tooltipLeft < 10) {
       return 'left';
     }
-    // If tooltip would overflow right edge, align right
     if (tooltipRight > viewportWidth - 10) {
       return 'right';
     }
-    // Otherwise center it
     return 'center';
   };
 
@@ -137,7 +133,6 @@ const GlassIcons: React.FC<GlassIconsProps> = ({
               </span>
             </button>
 
-            {/* Mobile tooltip - smart positioning */}
             <span
               className={`sm:hidden absolute top-full whitespace-nowrap leading-[2] text-base opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] z-[9999] pointer-events-none ${
                 tooltipPosition === 'left'
@@ -152,7 +147,6 @@ const GlassIcons: React.FC<GlassIconsProps> = ({
               </span>
             </span>
 
-            {/* Desktop tooltip - always centered */}
             <span
               className={`hidden sm:flex absolute top-full left-0 right-0 justify-center whitespace-nowrap leading-[2] text-base opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] translate-y-0 group-hover:opacity-100 group-hover:[transform:translateY(20%)] z-[9999] pointer-events-none ${
                 isActive ? 'opacity-100 [transform:translateY(20%)]' : ''

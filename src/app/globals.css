@@ -129,7 +129,6 @@
   }
 }
 
-/* Custom animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -142,7 +141,6 @@
 }
 
 
-/* Spinning dashed border animation for navbar tab hover */
 @keyframes navDashSpin {
   from {
     stroke-dashoffset: 0;
@@ -152,17 +150,14 @@
   }
 }
 
-/* Chrome, Safari, Edge */
 ::-webkit-scrollbar {
   display: none;
 }
 
-/* Firefox */
 * {
   scrollbar-width: none;
 }
 
-/* IE and old Edge */
 * {
   -ms-overflow-style: none;
 }

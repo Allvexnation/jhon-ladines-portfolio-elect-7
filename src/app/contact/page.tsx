@@ -63,7 +63,6 @@ export default function ContactPage() {
       animate="visible"
     >
       <div className="relative max-w-[1400px] mx-auto">
-        {/* Header */}
         <motion.div className="mb-5" variants={itemVariants}>
           <h2 className="text-2xl sm:text-3xl md:text-2xl lg:text-3xl xl:text-2xl font-bold mb-3" style={{ color: isDarkMode ? '#ffffff' : '#000000' }}>
             {t.pageHeader.title}
@@ -73,14 +72,12 @@ export default function ContactPage() {
           </p>
         </motion.div>
 
-        {/* Divider */}
         <motion.div 
           className="border-t mb-5 sm:mb-8 border-dashed" 
           style={{ borderColor: themeColors.border }}
           variants={itemVariants}
         ></motion.div>
 
-        {/* Toggle Buttons */}
         <motion.div className="flex gap-3 sm:gap-4 mb-6 sm:mb-8" variants={staggerVariants}>
           {t.tabs.map((tab: any) => (
             <motion.button
@@ -116,7 +113,6 @@ export default function ContactPage() {
           ))}
         </motion.div>
 
-        {/* Social Cards Grid - Only show when activeTab is 'social' */}
         {activeTab === 'social' && (
           <Social
             isLoading={isLoading}
@@ -129,7 +125,6 @@ export default function ContactPage() {
           />
         )}
 
-        {/* Contact Form - Only show when activeTab is 'contact' */}
         {activeTab === 'contact' && (
           <motion.div className="mt-0" variants={itemVariants}>
             <h3 className="text-lg sm:text-xl font-normal mb-4 sm:mb-6" style={{ color: isDarkMode ? '#ffffff' : '#000000' }}>
@@ -225,7 +220,6 @@ export default function ContactPage() {
         )}
       </div>
 
-      {/* Success/Error Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent>
           <DialogHeader>

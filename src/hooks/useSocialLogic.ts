@@ -9,10 +9,8 @@ export function useSocialLogic() {
   const [socials, setSocials] = useState<SocialItem[]>([]);
 
   useEffect(() => {
-    // Simulate loading - replace with actual API call
     const loadSocials = async () => {
       try {
-        // Icon mapping based on title
         const iconMap: Record<string, any> = {
           'Gmail': BiEnvelope,
           'Facebook': FaFacebook,
@@ -23,7 +21,6 @@ export function useSocialLogic() {
           'LinkedIn': FaLinkedin,
         };
 
-        // Map JSON data to SocialItem with icons
         const socialsWithIcons: SocialItem[] = socialsData.map((social: any) => ({
           ...social,
           icon: iconMap[social.title] || BiEnvelope,
