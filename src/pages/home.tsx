@@ -12,7 +12,7 @@ import { BiUser, BiCategory } from 'react-icons/bi';
 import GlassIcons from '@/components/GlassIcons';
 import { TechLogoIcon } from '@/components/TechLogoIcon';
 import { SkillsCardTechs } from '@/components/SkillsCardTechs';
-import { useHomeLogic } from '@/functions/useHomeLogic';
+import { useHomeLogic } from '@/hooks/useHomeLogic';
 
 export default function Home() {
   const { router, isDarkMode, sectionRef, isMounted, pageAnimated, t, themeColors } =
