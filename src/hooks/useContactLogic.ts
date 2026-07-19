@@ -6,6 +6,7 @@ import { getThemeColors } from '@/functions/ThemeFunction';
 import contactEnglish from '@/static/contact_english.json';
 import contactTagalog from '@/static/contact_tagalog.json';
 import { ContactTranslations } from '@/interface/ContactTranslations';
+import { handleSubmit } from './useEmailLogic';
 
 export function useContactLogic() {
   const router = useRouter();
@@ -84,49 +85,20 @@ export function useContactLogic() {
     },
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!name || !email || !subject || !message) {
-      return;
-    }
-
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          subject,
-          message,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to send email');
-      }
-
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setIsModalOpen(true);
-      setName('');
-      setEmail('');
-      setSubject('');
-      setMessage('');
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setIsSubmitting(false);
-      setSubmitStatus('error');
-      setIsModalOpen(true);
-    }
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    await handleSubmit(e, {
+      name,
+      email,
+      subject,
+      message,
+      setIsSubmitting,
+      setSubmitStatus,
+      setIsModalOpen,
+      setName,
+      setEmail,
+      setSubject,
+      setMessage,
+    });
   };
 
   useEffect(() => {
@@ -157,7 +129,7 @@ export function useContactLogic() {
     submitStatus,
     isModalOpen,
     setIsModalOpen,
-    handleSubmit,
+    handleSubmit: handleContactSubmit,
     t,
     themeColors,
     lang,
