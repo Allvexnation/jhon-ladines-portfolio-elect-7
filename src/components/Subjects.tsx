@@ -24,7 +24,7 @@ export default function Subjects({ isDarkMode }: SubjectsProps) {
               <li className="p-0 m-0 pointer-events-auto">
                 <LineSidebar
                   items={subjects}
-                  accentColor="#A855F7"
+                  accentColor="#0278fff1"
                   textColor={isDarkMode ? '#c4c4c4' : '#333333'}
                   markerColor="#6c6c6c"
                   showIndex
